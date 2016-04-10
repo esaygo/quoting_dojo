@@ -1,8 +1,5 @@
 <?php
-if(!isset($_SESSION))
-    {
-        session_start();
-    }
+  session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,6 +17,9 @@ if(!isset($_SESSION))
 </head>
 <body>
   <h1>Welcome to Quoting Dojo!</h1>
+  <?php if(isset($_SESSION['message'])) {
+    echo '<div id="message">' . $_SESSION['message'] . '</div>';
+  }?>
     <form class="pure-form pure-form-aligned" action="process.php" method="post">
         <div class="pure-control-group">
             <label for="color">Your name</label>
@@ -31,10 +31,10 @@ if(!isset($_SESSION))
             <input class="pure-input-1-2" type="textarea" name="quote" placeholder="Write your quote here">
         </div>
             <button id="add_quote" type="submit" class="pure-button pure-button-primary">Add my quote</button>
-            <button id="show_quotes" type="submit" class="pure-button pure-button-primary">Skip to quotes</button>
+            <button id="show_quotes" type="submit" class="pure-button pure-button-primary"><a href="main.php">Skip to quotes</a></button>
         </div>
-          <!-- <button class="button-success pure-button"><a href="success.php">Show Users</a></button> -->
-        <button class="button-error pure-button"><a href="logout.php">Destroy session</a></button>
+
+        <!-- <button class="button-error pure-button"><a href="logout.php">Destroy session</a></button> -->
 
 </form>
 </body>
