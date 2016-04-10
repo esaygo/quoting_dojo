@@ -2,7 +2,7 @@
 session_start();
 require_once('connection.php');
 
-$query = "SELECT * FROM quotes";
+$query = "SELECT * FROM quotes ORDER BY quote DESC";
 $show_quotes = fetch_all($query);
 
 ?>
